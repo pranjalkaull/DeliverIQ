@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeliverIQ</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+  <h1>🚀 DeliverIQ</h1>
+
+  <!-- FORM -->
+  <form id="predict-form">
+
+    <input type="text" id="restaurant" placeholder="Restaurant Address" required>
+    <input type="text" id="delivery" placeholder="Delivery Address" required>
+
+    <label>Prep Time</label>
+    <input type="range" id="prep-time" min="5" max="60" value="15">
+
+    <!-- ✅ ADD THESE INSIDE FORM -->
+    <label>Traffic</label>
+    <select id="traffic">
+      <option value="low">Low</option>
+      <option value="moderate">Moderate</option>
+      <option value="high">High</option>
+      <option value="jam">Jam</option>
+    </select>
+
+    <label>Weather</label>
+    <select id="weather">
+      <option value="clear">Clear</option>
+      <option value="rainy">Rainy</option>
+    </select>
+
+    <label>Vehicle</label>
+    <select id="vehicle">
+      <option value="bike">Bike</option>
+      <option value="scooter">Scooter</option>
+      <option value="car">Car</option>
+      <option value="bicycle">Bicycle</option>
+      <option value="foot">Foot</option>
+    </select>
+
+    <label>Time of Day</label>
+    <select id="time_of_day">
+      <option value="morning">Morning</option>
+      <option value="noon">Noon</option>
+      <option value="afternoon">Afternoon</option>
+      <option value="evening">Evening</option>
+      <option value="night">Night</option>
+    </select>
+
+    <button type="submit">Predict</button>
+  </form>
+
+  <!-- ✅ ONLY ONE RESULT PANEL -->
+  <div id="result-panel" class="hidden">
+
+    <!-- Loading -->
+    <div id="loading-state">
+      <div class="loader-ring"></div>
+      <p>Running ML model...</p>
+    </div>
+
+    <!-- Result -->
+    <div id="result-content" class="hidden">
+      <h2 id="res-time">--</h2>
+      <p id="res-range">Range: -- to -- mins</p>
+    </div>
+
+  </div>
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
